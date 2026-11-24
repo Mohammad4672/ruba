@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160d2b">
+<title>Ruba's Universe ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --pink:#ff8fc8;
+  --lav:#c7a5ff;
+  --cream:#fff3fb;
+}
+
+* { box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  background:#10091f;
+  color:var(--cream);
+  font-family:'Cairo',sans-serif;
+  overflow-x:hidden;
+}
+
+body:before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    radial-gradient(ellipse at 20% 15%,#48245f 0,transparent 40%),
+    radial-gradient(ellipse at 85% 75%,#242b62 0,transparent 42%),
+    linear-gradient(145deg,#10091f,#1b1030 55%,#10172d);
+}
+
+#stars {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.star {
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:#fff;
+  border-radius:50%;
+  opacity:.65;
+  animation:twinkle 3s infinite ease-in-out alternate;
+}
+
+@keyframes twinkle {
+  to { opacity:.12; transform:scale(.5); }
+}
+
+header {
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:34px 20px;
+}
+
+.hero { max-width:760px; }
+
+.eyebrow {
+  letter-spacing:3px;
+  color:#e6c5ff;
+  font-size:12px;
+}
+
+h1 {
+  font-size:clamp(42px,11vw,86px);
+  line-height:1.2;
+  margin:16px 0 8px;
+  font-weight:900;
+  background:linear-gradient(100deg,#fff,#ff9acb 45%,#c8aaff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.subtitle {
+  font-size:clamp(15px,3.5vw,20px);
+  color:#f4dff3;
+  margin:12px auto 28px;
+  max-width:560px;
+}
+
+button {
+  font:700 15px 'Cairo';
+  border:0;
+  border-radius:999px;
+  padding:13px 26px;
+  color:#261332;
+  background:linear-gradient(100deg,#ffc2e2,#d9c2ff);
+  box-shadow:0 8px 30px #e18cc64a;
+  cursor:pointer;
+  transition:.25s;
+}
+
+button:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 35px #e18cc680;
+}
+
+.small {
+  font-size:12px;
+  color:#c8b5d7;
+  margin-top:14px;
+}
+
+section {
+  padding:76px 20px;
+  max-width:950px;
+  margin:auto;
+}
+
+.section-title {
+  text-align:center;
+  font-size:clamp(26px,6vw,38px);
+  margin:0 0 14px;
+}
+
+.section-desc {
+  text-align:center;
+  color:#d4c3df;
+  margin:0 auto 34px;
+  max-width:620px;
+}
+
+.glass {
+  background:linear-gradient(135deg,#ffffff12,#ffffff08);
+  border:1px solid #ffffff20;
+  backdrop-filter:blur(14px);
+  border-radius:26px;
+  padding:26px;
+  box-shadow:0 20px 70px #0003;
+}
+
+.counter {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  text-align:center;
+}
+
+.num {
+  font-size:clamp(27px,7vw,48px);
+  font-weight:900;
+  color:#ffc0e2;
+  line-height:1.25;
+}
+
+.unit {
+  font-size:12px;
+  color:#d8c6e3;
+}
+
+.message {
+  font-size:18px;
+  line-height:2.2;
+  text-align:center;
+  min-height:130px;
+  white-space:pre-line;
+}
+
+.timeline { display:grid; gap:14px; }
+
+.memory {
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+
+.dot {
+  flex:0 0 13px;
+  height:13px;
+  border-radius:50%;
+  background:var(--pink);
+  margin-top:10px;
+  box-shadow:0 0 20px #ff8fc8;
+}
+
+.memory h3 {
+  margin:0 0 4px;
+  color:#ffc2e1;
+  font-size:17px;
+}
+
+.memory p {
+  margin:0;
+  color:#e3d5ea;
+  line-height:1.9;
+}
+
+.secret { text-align:center; }
+
+.secret-content {
+  display:none;
+  margin-top:22px;
+  line-height:2;
+  font-size:18px;
+  color:#ffe0f1;
+}
+
+.secret-content.show {
+  display:block;
+  animation:fade .8s ease;
+}
+
+@keyframes fade {
+  from { opacity:0; transform:translateY(12px); }
+  to { opacity:1; transform:none; }
+}
+
+footer {
+  text-align:center;
+  padding:35px 16px 55px;
+  color:#bca9ce;
+  font-size:13px;
+}
+
+.heart {
+  position:fixed;
+  bottom:-30px;
+  color:#ff9bcf;
+  pointer-events:none;
+  animation:float 7s linear forwards;
+  z-index:5;
+  text-shadow:0 0 15px #ff8fc8;
+}
+
+@keyframes float {
+  to {
+    transform:translateY(-110vh) rotate(30deg);
+    opacity:0;
+  }
+}
+
+@media(max-width:520px) {
+  .counter { grid-template-columns:repeat(2,1fr); }
+  section { padding:58px 17px; }
+  .glass { padding:21px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<header>
+  <div class="hero">
+    <div class="eyebrow">
+      A LITTLE UNIVERSE, MADE FOR ONE PERSON
+    </div>
+
+    <h1>رُبى ❤️</h1>
+
+    <p class="subtitle">
+      لو كان للحب عنوان… كان اسمِك.
+      ولو كان للكون نجمة مميّزة… كانت إنتِ.
+    </p>
+
+    <button id="openBtn">
+      افتحي لتشوفي يلي بقلبي يا رُبى ✨
+    </button>
+
+    <div class="small">
+      في شي حلو ناطرك تحت… ❤️
+    </div>
+  </div>
+</header>
+
+<main id="world" hidden>
+
+  <section>
+    <h2 class="section-title">
+      من يوم بلّشت حكايتنا
+    </h2>
+
+    <p class="section-desc">
+      من 25 نيسان 2025… وكل يوم عم يضيف سبب جديد حتى أحبّك أكتر.
+    </p>
+
+    <div class="glass counter">
+      <div>
+        <div class="num" id="days">0</div>
+        <div class="unit">يوم</div>
+      </div>
+
+      <div>
+        <div class="num" id="hours">0</div>
+        <div class="unit">ساعة</div>
+      </div>
+
+      <div>
+        <div class="num" id="minutes">0</div>
+        <div class="unit">دقيقة</div>
+      </div>
+
+      <div>
+        <div class="num" id="seconds">0</div>
+        <div class="unit">ثانية</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">
+      رسالة إلك… من قلبي 💌
+    </h2>
+
+    <p class="section-desc">
+      اقريها على مهلك، لأن كل كلمة فيها إلها معنى.
+    </p>
+
+    <div class="glass message" id="typed"></div>
+  </section>
+
+  <section>
+    <h2 class="section-title">
+      حكايتنا بعدها بأوّلها 🌙
+    </h2>
+
+    <p class="section-desc">
+      مش لازم تكون كل الذكريات مكتوبة…
+      المهم إنّها عايشة بقلوبنا.
+    </p>
+
+    <div class="glass timeline">
+
+      <div class="memory">
+        <span class="dot"></span>
+        <div>
+          <h3>25 نيسان 2025</h3>
+          <p>
+            اليوم اللي بلّشت فيه حكاية صارت جزء حلو من حياتي.
+          </p>
+        </div>
+      </div>
+
+      <div class="memory">
+        <span class="dot"></span>
+        <div>
+          <h3>كل يوم بعده</h3>
+          <p>
+            تفاصيل صغيرة، ضحكة، كلمة، وذكريات عم تكبر معنا.
+          </p>
+        </div>
+      </div>
+
+      <div class="memory">
+        <span class="dot"></span>
+        <div>
+          <h3>واللي جايي…</h3>
+          <p>
+            بعد في كتير لحظات حلوة بدنا نعيشها سوا.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="secret">
+    <h2 class="section-title">
+      وصلتي للمفاجأة؟ 🎁
+    </h2>
+
+    <p class="section-desc">
+      في رسالة مخبّاية إلك… اضغطي لتفتحيها.
+    </p>
+
+    <div class="glass">
+
+      <button id="secretBtn">
+        اكشفي المفاجأة ❤️
+      </button>
+
+      <div class="secret-content" id="secretText">
+        يا رُبى، إذا في أمنية بتمناها، فهي إنّي ضلّ سبب
+        لابتسامتِك، وكون حدّك بالأيام الحلوة والصعبة.
+        ما بدي وعد كبير قد ما بدي كل يوم أثبتلك إنّك
+        غالية عندي. بحبّك، واليوم وبكرا وكل يوم جايي…
+        إنتِ اختياري. ❤️
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>كل شي شفتي هون من قلبي الك❤️
+</footer>
+
+<audio id="song" src="music.mp3" preload="none"></audio>
+
+<script>
+
+// النجوم
+const starBox = document.getElementById('stars');
+
+for(let i=0; i<100; i++) {
+  let s = document.createElement('i');
+  s.className = 'star';
+  s.style.left = Math.random()*100 + '%';
+  s.style.top = Math.random()*100 + '%';
+  s.style.animationDelay = Math.random()*4 + 's';
+  s.style.opacity = .2 + Math.random()*.7;
+  starBox.appendChild(s);
+}
+
+// رسالة الحب
+const message = `رُبى حبيبتي…
+
+يمكن ما في كلام بالدنيا بيقدر يوصف قديش وجودِك حلو بحياتي.
+إنتِ مش بس شخص بحبّه، إنتِ ضحكة بتغيّر نهاري،
+وراحة بحسّها من بين كل التعب، وتفصيل حلو بتمنّى يضل معي.
+
+بعرف إنّه مش كل الأيام بتكون سهلة،
+بس بتمنّى نضل نختار بعض، ونفهم بعض، ونكبر سوا.
+بدي نعمل ذكريات كتيرة، ونضحك على أشياء صغيرة،
+ونضل نلاقي ببعض المكان اللي منرتاح فيه.
+
+هيدا الموقع صغير قدّام اللي بقلبي…
+بس حبيت يكون عندِك شي ترجعي تفتحيه وتتذكّري
+إنّه في حدا شايفِك أجمل صدفة وأحلى حكاية.
+
+بحبّك يا رُبى ❤️`;
+
+let typingStarted = false;
+
+function typeMessage() {
+  if(typingStarted) return;
+
+  typingStarted = true;
+
+  let i = 0;
+  let el = document.getElementById('typed');
+
+  let timer = setInterval(() => {
+    el.textContent = message.slice(0, ++i);
+
+    if(i >= message.length) {
+      clearInterval(timer);
+    }
+  }, 32);
+}
+
+// عداد الأيام
+function updateCounter() {
+  const start = new Date(2025, 3, 25);
+  let diff = Math.max(0, Date.now() - start.getTime());
+
+  let d = Math.floor(diff / 86400000);
+  let h = Math.floor(diff / 3600000) % 24;
+  let m = Math.floor(diff / 60000) % 60;
+  let s = Math.floor(diff / 1000) % 60;
+
+  document.getElementById('days').textContent =
+    d.toLocaleString('en-US');
+
+  document.getElementById('hours').textContent = h;
+  document.getElementById('minutes').textContent = m;
+  document.getElementById('seconds').textContent = s;
+}
+
+updateCounter();
+setInterval(updateCounter, 1000);
+
+// فتح عالم رُبى
+document.getElementById('openBtn').addEventListener('click', () => {
+
+  document.getElementById('world').hidden = false;
+
+  document.getElementById('world').scrollIntoView({
+    behavior:'smooth'
+  });
+
+  typeMessage();
+
+  const song = document.getElementById('song');
+
+  song.play().catch(() => {});
+});
+
+// المفاجأة
+document.getElementById('secretBtn').addEventListener('click', () => {
+
+  document.getElementById('secretText').classList.add('show');
+
+  document.getElementById('secretBtn').textContent =
+    'بحبّك يا رُبى ❤️';
+});
+
+// القلوب المتحركة
+setInterval(() => {
+
+  let h = document.createElement('span');
+
+  h.className = 'heart';
+
+  h.textContent = ['❤','♡','💕','✦'][
+    Math.floor(Math.random()*4)
+  ];
+
+  h.style.left = Math.random()*100 + '%';
+
+  h.style.fontSize = (14 + Math.random()*22) + 'px';
+
+  h.style.animationDuration = (5 + Math.random()*5) + 's';
+
+  document.body.appendChild(h);
+
+  setTimeout(() => h.remove(), 10000);
+
+}, 650);
+
+</script>
+
+</body>
+</html>
